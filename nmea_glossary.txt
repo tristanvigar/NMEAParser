@@ -1,0 +1,125 @@
+GGA - Global Positioning System Fixed Data
+
+1      2          3         4 5          6 7 8  9    10    11 12   13   14   15 16 
+$GPGGA,000000.000,0000.0000,N,00000.0000,W,2,09,0.91,1077.6,M,-17.5,M,0000,0000*64,
+
+ 1 - Message ID ($GPGGA)
+ 2 - UTC Time (hhmmss.sss)
+ 3 - Latitude (ddmm.mmmm)
+ 4 - North/South Indicator (N or S)
+ 5 - Longitude (dddmm.mmmm)
+ 6 - East/West Indicator (E or W)
+ 7 - Position Fix Indicator (0 = Fix not available or invalid, 
+                             1 = GPS SPS Mode - Fix valid, 
+                             2 = Differential GPS, SPS Mode - Fix valid,
+                             3-5 = Not Supported,
+                             6 = Dead Reckoning Mode - Fix valid)
+ 8 - Satellites Used (Range 0 to 12)
+ 9 - HDOP (Horizontal Dilution of Precision)
+10 - MSL Altitude (Meters)
+11 - Units (Meters)
+12 - Geoid Separation (Meters)
+13 - Units (Meters)
+14 - Age of Diff. Corr. (Seconds) (Null fields when DGPS is not used)
+15 - Diff. Ref. Station ID
+16 - Checksum
+17 - <CR> <LF> (End of message termination)
+
+
+GSA - GNSS DOP and Active Satellites
+
+1      2 3 4  5  6  7  8  9  10 11 12 13 14 15 16   17   18   19
+$GPGSA,A,3,25,05,29,31,21,12,09,02,26,  ,  ,  ,1.69,0.91,1.42*07
+
+ 1 - Message ID ($GPGSA)
+ 2 - Mode 1 (M = Manual-forced to operate in 2D or 3D mode, 
+             A = 2D Automatic-allowed to automatically switch 2D/3D)
+ 3 - Mode 2 (1 = Fix not available, 
+             2 = 2D [<4 SVs used], 
+             3 = 3D [>3 SVs used])
+ 4 - Satellite Used  (1)
+ 5 - Satellite Used  (2)
+ 6 - Satellite Used  (3)
+ 7 - Satellite Used  (4)
+ 8 - Satellite Used  (5)
+ 9 - Satellite Used  (6)
+10 - Satellite Used  (7)
+11 - Satellite Used  (8)
+12 - Satellite Used  (9)
+13 - Satellite Used (10)
+14 - Satellite Used (11)
+15 - Satellite Used (12)
+16 - PDOP (Position Dilution of Precision)
+17 - HDOP (Horizontal Dilution of Precision)
+18 - VDOP (Vertical Dilution of Precision)
+19 - Checksum
+20 - <CR> <LF>
+
+
+GSV - GNSS Satellites in View
+
+1      2 3 4  5  6  7   8  9  10 11  12 13 14 15  16 17 18 19  20 21
+$GPGSV,3,2,11,46,29,199,36,12,25,178,21,21,19,252,48,26,12,323,35*7D
+
+ 1 - Message ID ($GPGSV)
+ 2 - Number of Messages (Range 1 to 3)
+ 3 - Message Number (Range 1 to 3 = Depending on number of satellites tracked, multiple messages of GSV data may be required)
+ 4 - Satellites in View
+ 5 - Satellite ID (Channel 1 (Range 1 to 32))
+ 6 - Elevation (Degrees) - (Maximum 90)
+ 7 - Azimuth
+ 8 - SNR (C/No) (Degrees) - (Range 0 to 99, null when not tracking)
+ 9 - Satellite ID (Channel 1 (Range 1 to 32))
+10 - Elevation (Degrees) - (Maximum 90)
+11 - Azimuth
+12 - SNR (C/No) (Degrees) - (Range 0 to 99, null when not tracking)
+13 - Satellite ID (Channel 1 (Range 1 to 32))
+14 - Elevation (Degrees) - (Maximum 90)
+15 - Azimuth
+16 - SNR (C/No) (Degrees) - (Range 0 to 99, null when not tracking)
+17 - Satellite ID (Channel 1 (Range 1 to 32))
+18 - Elevation (Degrees) - (Maximum 90)
+19 - Azimuth
+20 - SNR (C/No) (Degrees) - (Range 0 to 99, null when not tracking)
+21 - Checksum
+22 - <CR> <LF>
+
+
+RMC - Recommended Minimum Specific GNSS Data
+
+1      2          3 4         5 6          7 8    9    10     11 12 1314
+$GPRMC,000000.000,A,0000.0000,N,00000.0000,W,0.01,3.33,000000,  ,  ,D*7B
+
+ 1 - Message ID ($GPRMC)
+ 2 - UTC Time (hhmmss.sss)
+ 3 - Status (A = Data Valid, V = Data Not Valid)
+ 4 - Latitude (ddmm.mmmm)
+ 5 - North or South Indicator (N = North, S = South)
+ 6 - Longitude (dddmm.mmmm)
+ 7 - East or West Indicator (E = East, W = West)
+ 8 - Speed Over Ground (knots)
+ 9 - Course Over Ground (degrees)
+10 - Date (ddmmyy)
+11 - Magnetic Variation
+12 - Mode (A = Autonomous, D = DGPS, E = DR)
+13 - Checksum
+14 - <CR> <LF>
+
+
+VTG - Course Over Ground and Ground Speed
+
+1      2    3 4 5 6    7 8    910 11
+$GPVTG,0.00,T, ,M,0.00,N,0.00,K,D*3B
+
+ 1 - Message ID ($GPVTG)
+ 2 - Course (degrees) - Measured heading
+ 3 - Reference (True/False)
+ 4 - Course (degrees) - Measured heading
+ 5 - Reference (Magnetic)
+ 6 - Speed (N = knots)
+ 7 - Units (N = knots)
+ 8 - Speed (km/h)
+ 9 - Units (K = km/h)
+10 - Mode (A = autonomous, D = DGPS, E = DR)
+11 - Checksum
+12 - <CR> <LF>
